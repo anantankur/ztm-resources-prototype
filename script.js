@@ -44,6 +44,7 @@ const linker = (data, i, dP) => {
 		let a = document.createElement("a");
 		a.appendChild(document.createTextNode(i.url_text));
 		a.href = i.url;
+		a.target = "_blank";
 		a.style.fontWeight = "bold";
 		a.setAttribute("class", "weblink");
 		dP.appendChild(a);
