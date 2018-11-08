@@ -1,5 +1,7 @@
+var myUrl = config.WEB_URL;
+
 const dataFetch = () => {
-	fetch(WEB_URL).then(response => {
+	fetch(myUrl).then(response => {
 	  	return response.json();
 	}).then(data => {
 	  	liCreator(data);
