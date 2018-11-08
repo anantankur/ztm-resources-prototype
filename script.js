@@ -1,5 +1,5 @@
 const dataFetch = () => {
-	fetch('https://calm-bayou-88483.herokuapp.com/data').then(response => {
+	fetch(config.WEB_URL).then(response => {
 	  	return response.json();
 	}).then(data => {
 	  	liCreator(data);
@@ -18,14 +18,44 @@ const liCreator = (data, err) => {
 	} else {
 		let div;
 		data.forEach((i) => {
-			if(i.category==='general'){
-				div = document.getElementById('linkGen');
-				console.log(i, "general")
-			} else if (i.category==='webdesign') {
-				div = document.getElementById('linkWebd');
-				console.log(i, "webd")
-			} else {
-				div = document.getElementById('otherLinks');
+
+			switch(i.category) {
+				case 'general':
+					div = document.getElementById('linkGen');
+					console.log(i, "general");
+					break;
+				case 'webdesign':
+					div = document.getElementById('linkWebdesign');
+					console.log(i, "webdesign");
+					break;
+				case 'javascript':
+					div = document.getElementById('linkJavascript');
+					console.log(i, "javascript");
+					break;
+				case 'articles':
+					div = document.getElementById('linkArticles');
+					console.log(i, "articles");
+					break;
+				case 'tools':
+					div = document.getElementById('linkTools');
+					console.log(i, "tools");
+					break;
+				case 'git':
+					div = document.getElementById('linkGit');
+					console.log(i, "github");
+					break;
+				case 'interview':
+					div = document.getElementById('linkInterview');
+					console.log(i, "interview");
+					break;
+				case 'youtube':
+					div = document.getElementById('linkYoutube');
+					console.log(i, "youtube");
+					break;
+				default:
+					div = document.getElementById('otherLinks');
+					console.log(i, "random");
+					break;
 			}
 
 			let p = document.createElement("p");
