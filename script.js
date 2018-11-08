@@ -1,7 +1,5 @@
-var myUrl = config.WEB_URL;
-
 const dataFetch = () => {
-	fetch(myUrl).then(response => {
+	fetch('https://calm-bayou-88483.herokuapp.com/data').then(response => {
 	  	return response.json();
 	}).then(data => {
 	  	liCreator(data);
